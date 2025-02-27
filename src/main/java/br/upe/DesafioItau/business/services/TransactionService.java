@@ -10,10 +10,6 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-* This class handles business rules
-* related to transactions
-* */
 @Service
 @RequiredArgsConstructor
 @Slf4j
