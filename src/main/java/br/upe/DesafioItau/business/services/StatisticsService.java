@@ -18,6 +18,9 @@ public class StatisticsService {
 
     public StatisticsResponseDTO getStatistics(Integer interval){
         log.info("The process of getting statistics has been initiated");
+
+        long start = System.currentTimeMillis();
+
         List<TransactionRequestDTO> transactions = transactionService.searchTransactions(interval);
 
         DoubleSummaryStatistics statisticsCalculator = transactions.stream()
@@ -28,6 +31,9 @@ public class StatisticsService {
             return new StatisticsResponseDTO(0L, 0.0, 0.0, 0.0, 0.0);
         }
 
+        long end = System.currentTimeMillis();
+
+        log.info("Request time: {} in milliseconds", (end - start));
         log.info("Statistics for the interval{}were returned successfully!", interval);
         return new StatisticsResponseDTO(
                 statisticsCalculator.getCount(),
