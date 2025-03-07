@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 public class TransactionController {
 
     private final TransactionService transactionService;
-    private final GenericResponseService responseBuilder;
 
     @PostMapping
     @Operation(description = "Endpoit responsible for add transactions")
